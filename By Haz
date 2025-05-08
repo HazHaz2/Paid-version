@@ -1,35 +1,26 @@
-local whitelistedUsers = {
-    "Elijahscot5557",
-    "LK_HAZ2",
-    "VithuEA10",
-    "Shadow_RipperZ0",
-}
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/iblameaabis/Ililililililililililililil/refs/heads/main/W%20UI", true))()
 
-local function isWhitelisted(username)
-    for _, whitelisted in ipairs(whitelistedUsers) do
-        if username == whitelisted then
-            return true
-        end
-    end
-    return false
-end
-
-
-if game.Players.LocalPlayer then
-    local player = game.Players.LocalPlayer
-    local username = player.Name
-
-    if not isWhitelisted(username) then
-        player:Kick("Not WhiteListed L Haz son forever (Buy Paid) first nigger")
-    else
-local library =
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/iblameaabis/Ililililililililililililil/refs/heads/main/W%20UI", true))()
-
-local window = library:AddWindow("IblameHaz Paid Hub | By IblameHaz", {
+local window = library:AddWindow("IblameHaz private Hub | By IblameHaz", {
     main_color = Color3.fromRGB(21, 31, 41),
     min_size = Vector2.new(610, 520),
     can_resize = false,
 })
+
+-- SETTINGS TAB
+local settingsTab = window:AddTab("SETTINGS")
+
+settingsTab:AddButton("Enable Anti-AFK", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/Anti-afk/main/antiafkbyhassanxzyn"))()
+end)
+
+settingsTab:AddButton("Enable Anti-LAG/AFK by moha", function()
+    local success, errorMessage = pcall(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/LEGENDOX-BYMOHA/ML/main/anti%20lag%2Ckick%2Cafk%20.txt"))()
+    end)
+    if not success then
+        warn("Failed to load Anti-LAG/KICK/AFK script:", errorMessage)
+    end
+end)
 
 local farmingTab = window:AddTab("FarmV1")
 farmingTab:Show()
@@ -816,6 +807,3 @@ local Credits = window:AddTab("Credits")
 Credits:AddLabel("Private script" )
 Credits:AddLabel("Script Made By iblameHaz")
 Credits:AddLabel("Discord: zziblamehazzz.")
-        
-    end
-end
